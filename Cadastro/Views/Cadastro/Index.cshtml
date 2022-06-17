@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Cadastro.Models.DbCadastro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Formulario de Cadastro</h1>
+
+
+<p>
+    <a asp-action="Create"><i class="fa-solid fa-plus"></i></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Rua
+            </th>
+            <th>
+                Numero
+            </th>
+            <th>
+                CEP
+            </th>
+            <th>
+                Cidade
+            </th>
+            <th>
+                Estado
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.rua)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id"><i class="fa-solid fa-pen-to-square"></i></a> | 
+                    <a asp-action="Details" asp-route-id="@item.id"><i class="fa-solid fa-list"></i></a> | 
+                    <a asp-action="Delete" asp-route-id="@item.id"><i class="fa-solid fa-trash"></i></a>                   
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
